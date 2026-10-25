@@ -2,6 +2,13 @@
 
 Fork AGPL-3.0 de `rustdesk/rustdesk-server` tag 1.1.16 (73523b3). Só o `hbbs` muda; `hbbr` é o oficial.
 
+**Aviso de modificação (AGPL-3.0 §5a):** versão modificada por WPS a partir de 25/10/2026. Arquivo alterado:
+`src/rendezvous_server.rs` (trechos marcados com `WPS fork`); arquivos novos em `wps/`. Este repositório é a
+Fonte Correspondente oferecida aos usuários do serviço (AGPL-3.0 §13). Licença: a mesma do upstream (`LICENSE`).
+
+Referência consultada: PR [rustdesk/rustdesk-server#657](https://github.com/rustdesk/rustdesk-server/pull/657)
+(@nour-s), que também propõe registro por WebSocket.
+
 ## Problema
 O hbbs OSS responde `NOT_SUPPORT` a `RegisterPk` recebido por TCP/WebSocket e fecha o socket
 (recurso do Server Pro). Um host que só alcança a porta 443 (WebSocket via Cloudflare) nunca fica
@@ -25,9 +32,9 @@ online — o cliente loga `unknown RegisterPkResponse`.
 verifica T1–T8 (registro, heartbeat, online, stream vivo 40 s, PunchHole/RequestRelay pelo stream,
 offline ao desconectar, regressão ID_NOT_EXIST).
 
-## Build para a Friday (x86_64, estático)
+## Build (x86_64 Linux, estático)
 
 `bash wps/build-musl.sh` num Mac com `rustup`, `zig` e `cargo-zigbuild`. Saída:
 `target/x86_64-unknown-linux-musl/release/hbbs` (ELF estático). O ensaio confere o sha256.
 Build de 25/10/2026: sha256 `dade0eb90f9b430fa27cbe0c4166ab657ae3eac471b4fb99a7dae4c20c1ccb6c`,
-8/8 no `wps/test` rodando na própria Friday.
+8/8 no `wps/test` rodando no servidor de destino.

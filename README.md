@@ -1,3 +1,6 @@
+> **Fork WPS** — versão modificada (AGPL-3.0) do RustDesk Server 1.1.16 com registro de host por
+> TCP/WebSocket no `hbbs`. Mudanças, teste e build: [`wps/README.md`](wps/README.md). Não é afiliado ao RustDesk.
+
 # RustDesk Server Program
 
 [![build](https://github.com/rustdesk/rustdesk-server/actions/workflows/build.yaml/badge.svg)](https://github.com/rustdesk/rustdesk-server/actions/workflows/build.yaml)
