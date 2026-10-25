@@ -24,3 +24,10 @@ online — o cliente loga `unknown RegisterPkResponse`.
 `protoc --python_out` de `libs/hbb_common/protos/rendezvous.proto`): sobe um hbbs descartável e
 verifica T1–T8 (registro, heartbeat, online, stream vivo 40 s, PunchHole/RequestRelay pelo stream,
 offline ao desconectar, regressão ID_NOT_EXIST).
+
+## Build para a Friday (x86_64, estático)
+
+`bash wps/build-musl.sh` num Mac com `rustup`, `zig` e `cargo-zigbuild`. Saída:
+`target/x86_64-unknown-linux-musl/release/hbbs` (ELF estático). O ensaio confere o sha256.
+Build de 25/10/2026: sha256 `dade0eb90f9b430fa27cbe0c4166ab657ae3eac471b4fb99a7dae4c20c1ccb6c`,
+8/8 no `wps/test` rodando na própria Friday.
